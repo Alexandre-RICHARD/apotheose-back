@@ -1,0 +1,137 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}
+
+### Route GET /quiz
+
+GET {{baseUrl}}/en/quizzes
+
+### Route GET /quiz/:id
+
+GET {{baseUrl}}/en/quiz/10
+
+
+### Route GET /articles
+
+GET {{baseUrl}}/en/articles
+
+
+### Route POST /login
+
+POST {{baseUrl}}/login
+Content-type: application/json
+
+{
+    "email": "jeanlucII@oclock.io",
+    "password": "Ilovemimi10sisi"
+}
+
+
+### Route PATCH /user/:id
+
+PATCH {{baseUrl}}/settings/user/4
+Content-type: application/json
+
+{
+    "firstname": "moris",
+    "lastname": "ohmygod",
+    "password": "Ilovemimi10sisi1987",
+    "newPassword": "Ilovemimi10sisi1987v2"
+
+}
+
+
+### Route PATCH /user/:id
+
+PATCH {{baseUrl}}/settings/email/7
+Content-type: application/json
+
+{
+    "email": "jeanlucII@oclock.io",
+    "password": "Ilovemimi10sisi"
+}
+
+### Route POST /login
+
+POST https://apov9.herokuapp.com/register
+Content-type: application/json
+
+{
+    "email": "lebigtestPartII@oclock.io",
+    "firstname": "letest",
+    "lastname": "james",
+    "password": "Ilovemimi10"
+}
+
+### Route POST /login
+
+POST {{baseUrl}}/login
+Content-type: application/json
+
+{
+    "email": "thegreattony@oclock.io",
+    "password": "Ilovemimi10sisiAvecUnMotDePasseDeBatard"
+}
+
+### Route GET /jwtid
+
+GET {{baseUrl}}/jwtid
+
+### Route POST /logout
+
+POST {{baseUrl}}/logout
+Content-type: application/json
+
+{
+    "email": "thegreattony@oclock.io",
+    "password": "Ilovemimi10sisiAvecUnMotDePasseDeBatard"
+}
+
+
+### Route POST /register
+
+POST {{baseUrl}}/register
+Content-type: application/json
+
+{
+    "email": "thegreattony@oclock.io",
+    "firstname": "tony",
+    "lastname": "james",
+    "password": "Ilovemimi10sisiAvecUnMotDePasseDeBatard"
+}
+
+
+### Route DELETE /settings/delete/:id
+
+DELETE {{baseUrl}}/settings/delete/6
+{
+    "password": "Ilovemimi10sisi"
+}
+
+
+### Route PUT /score/
+
+PUT {{baseUrl}}/score
+Content-type: application/json
+
+{
+    "scoreQuiz": 75,
+    "userId": 4,
+    "quizId": 2
+}
+
+### Route PUT /score/
+
+PUT https://apov9.herokuapp.com/score
+Content-type: application/json
+
+{
+    "scoreQuiz": 75,
+    "userId": 23,
+    "quizId": 4
+}
+
+### Route GET /score/:id
+
+GET {{baseUrl}}/score/4

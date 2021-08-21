@@ -1,0 +1,5 @@
+%syntax-version=1.0.0
+%project=apov5
+
+init 2021-03-02T15:52:46Z Anthony Paccaud <wahoostik@gmail.com> # création des tables
+data 2021-03-02T15:52:55Z Anthony Paccaud <wahoostik@gmail.com> # création de data
