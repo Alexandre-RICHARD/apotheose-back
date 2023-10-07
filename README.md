@@ -8,3 +8,5 @@ Ce projet m'a permis de :
 - M'introduire la notion de schémas de vérification (regex) 
 - Valider et fortifier mes connaissances d'express, cors, node...
 - En apprendre davantage sur la mnaière de mettre en ligne une API
+
+TODO
