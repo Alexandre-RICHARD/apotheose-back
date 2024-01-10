@@ -1,7 +1,7 @@
 
 /**
  * valide le payload d'une requête à partir du schéma passé en argument
- * @param {Joi.schema} schema 
+ * @param {Joi.schema} schema
  * @returns {Function} middleware Express prêt à l'emploi
  */
 const validateBody = (schema) => (request, response, next) => {

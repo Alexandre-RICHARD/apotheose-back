@@ -6,7 +6,7 @@ const Joi = require('joi');
 const modifyEmailSchema = Joi.object().keys({
     email: Joi.string().regex(/^[a-zA-Z0-9!#$%&'*+\/=?^_{|}~-][a-zA-Z0-9!#$%&'*+\/=?^_{|}~.-]+[a-zA-Z0-9!#$%&'*+\/=?^_{|}~-]@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/).error(new Error('emailFormatError')),
     password: Joi.string().regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,60}$/).min(8).max(60).required().error(new Error('incorrectPasswordError'))
-    
+
 });
 
 module.exports = modifyEmailSchema;

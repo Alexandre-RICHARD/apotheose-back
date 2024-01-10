@@ -9,7 +9,7 @@ const modifyDataSchema = Joi.object().keys({
     lastname: Joi.string(),
     password: Joi.string().required().error(new Error('incorrectPasswordError')),
     newPassword: Joi.string().regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,60}$/).min(8).max(60).required().error(new Error('newPasswordError'))
-    
+
 });
 
 module.exports = modifyDataSchema;

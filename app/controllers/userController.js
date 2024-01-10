@@ -14,7 +14,7 @@ const userController = {
 
             //on cherche à identifier le user à partir de son email
             const theUser = await User.findOneUserByEmail(user.email);
-                     
+
             //si aucun user trouvé avec ce mail => message d'erreur
             if (!theUser.id) {
                 return response.status(400).json('loginError');
@@ -27,7 +27,7 @@ const userController = {
             const validPassword = await bcrypt.compare(user.password, theUser.password);
 
             console.log(validPassword);
-            
+
             //la vérification a échoué, on envoie un message d'erreur
             if (!validPassword) {
                 return response.status(400).json('loginError');
@@ -62,22 +62,22 @@ const userController = {
             const hash = await bcrypt.hash(request.body.password, salt);
 
             //les infos de l'utilisateur à ajouter
-            const userData = { 
+            const userData = {
                 email: request.body.email,
                 firstname: request.body.firstname,
                 lastname: request.body.lastname,
                 password: hash};
 
-            //on checke si un utilisateur existe déjà avec cet email    
+            //on checke si un utilisateur existe déjà avec cet email
             const doesExist = await User.findOneUserByEmail(userData.email);
-            
+
             //si l'email existe déjà, alors on envoie un message d'erreur
             if (doesExist.id) {
                 return response.status(400).json('emailError');
-            }    
-             
+            }
+
             //si l'email n'existe pas, alors on inscrit le nouveau user en BDD
-            const user = new User(userData);  
+            const user = new User(userData);
 
             await user.createAuser(userData);
             console.log(hash);
@@ -107,7 +107,7 @@ const userController = {
             if (!theUser) {
                 response.status(400).json("Nous n'avons pas trouvé l'id : " + id)
             } else {
-            // on ne change que les paramètres envoyés   
+            // on ne change que les paramètres envoyés
             if (firstname) {
                 theUser.firstname = firstname;
             }
@@ -139,7 +139,7 @@ const userController = {
             console.log("Fin du processus de changement de mot de passe");
 
             theUser.password = hash;
-            
+
             console.log("Mot de passe crypté: ", theUser.password);
             console.log("Mot de passe mis à jour : ", newPassword);
 
@@ -149,7 +149,7 @@ const userController = {
             await theUser.modifyUserData();
             console.log(theUser);
             response.json("L'utilisateur avec l'id : " + id + ", a bien été modifié");
-                
+
             }
         } catch (error) {
             response.status(403).json(error.message);
@@ -184,9 +184,9 @@ const userController = {
 
             //la vérification a réussi, l'utilisateur peut changer son mail
             if (validPassword) {
-            //on checke si un autre utilisateur existe déjà avec cet email 
+            //on checke si un autre utilisateur existe déjà avec cet email
             const doesExist = await User.findOneUserByEmail(email);
-            
+
             //si l'email existe déjà, alors on envoie un message d'erreur
             if (doesExist.email) {
             return response.status(400).json('emailError');
@@ -200,7 +200,7 @@ const userController = {
 
             console.log(theUser);
             response.json("Le mail de l'utilisateur avec l'id : " + id + ", a bien été modifié");
-               
+
             }
         } catch (error) {
             response.status(400).json(error.message);
@@ -248,7 +248,7 @@ const userController = {
             //on redirige sur la page d'accueil
             response.redirect('/');
             console.log("L'utilisateur a bien été déconnecté");
-        
+
     },
 
 

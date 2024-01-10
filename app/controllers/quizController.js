@@ -25,7 +25,7 @@ const quizController = {
         const lang = request.params.lang;
         const id = parseInt(request.params.id, 10);
         const theQuiz = await Quiz.findOneQuiz(id, lang);
-        
+
         console.log(theQuiz);
         response.json(theQuiz);
         } catch (error) {

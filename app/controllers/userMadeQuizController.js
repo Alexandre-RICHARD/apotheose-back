@@ -7,7 +7,7 @@ const userMadeQuizController = {
         //on récupère un utilisateur en fonction de son ID en BDD
         const id = parseInt(request.params.id, 10);
         const theUserMadeQuiz = await UserMadeQuiz.findOneById(id);
-        
+
         console.log(theUserMadeQuiz);
         response.json(theUserMadeQuiz);
     } catch (error) {
@@ -22,7 +22,7 @@ const userMadeQuizController = {
         //on récupère un utilisateur en fonction de son ID en BDD
         const id = parseInt(request.params.id, 10);
         const theUserScoreQuiz = await UserMadeQuiz.findScoreUserById(id);
-        
+
         console.log(theUserScoreQuiz);
         response.json(theUserScoreQuiz);
     } catch (error) {
@@ -43,7 +43,7 @@ const userMadeQuizController = {
         //si l'id existe déjà, alors on modifie les scores
         if (theUserDoesExist.id) {
         theUserDoesExist.scoreQuiz = scoreQuiz;
-    
+
         console.log("Debut de la modification");
         await theUserDoesExist.modifyScoreQuiz();
         response.json(theUserDoesExist);
@@ -53,8 +53,8 @@ const userMadeQuizController = {
 
         //si l'id n'existe pas, alors on inscrit le score de l'utilisateur en BDD
         } else {
-        console.log("Debut de la création");    
-        const newUserScore = new UserMadeQuiz(request.body);  
+        console.log("Debut de la création");
+        const newUserScore = new UserMadeQuiz(request.body);
         await newUserScore.createScoreQuiz();
 
         response.json(newUserScore);

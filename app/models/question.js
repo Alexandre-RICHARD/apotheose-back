@@ -2,7 +2,7 @@
 const db = require('../database.js');
 
 class Question {
-  //camelCase ici, snake_case côté BDD  
+  //camelCase ici, snake_case côté BDD
   id;
   frStatement;
   frArticleLink;

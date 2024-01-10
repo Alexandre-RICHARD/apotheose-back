@@ -10,7 +10,7 @@ const registerSchema = Joi.object().keys({
     firstname: Joi.string().required(),
     lastname: Joi.string().required(),
     password: Joi.string().regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,60}$/).min(8).max(60).required().error(new Error('newPasswordError'))
-    
+
 });
 
 module.exports = registerSchema;
